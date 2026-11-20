@@ -1,0 +1,531 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.button-link {
+  display: inline-block;
+  border: 1px solid buttonborder;
+  background: buttonface;
+  color: buttontext;
+  text-decoration: none;
+  font: inherit;
+}
+
+.action-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.action-button {
+  width: 80px;
+  min-height: 28px;
+  box-sizing: border-box;
+  padding: 2px 6px;
+  text-align: center;
+}
+
+.filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.filter-toolbar label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 2px 6px 2px 0;
+  padding: 3px 6px;
+  border: 1px solid #cbd2dc;
+  background: #f7f8fa;
+  font-size: 0.9rem;
+}
+
+.day-option:has(input:checked) {
+  border-color: #2878c8;
+  background: #dcecff;
+}
+
+.setting-day-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.day-times {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.staff-days-fieldset {
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 10px;
+}
+
+.day-times input {
+  width: 88px;
+  padding: 2px 4px;
+}
+
+.details-grid .staff-days-fieldset {
+  grid-column: 1 / -1;
+}
+
+.details-page h2 {
+  margin-top: 28px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 12px 24px;
+  max-width: 760px;
+  align-items: start;
+}
+
+.details-grid p {
+  margin: 0;
+}
+
+.details-grid textarea,
+.details-grid input {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.details-grid button {
+  width: fit-content;
+}
+
+.contact-card {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #d9dee7;
+}
+
+.parent-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.parent-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.parent-actions hr {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #d9dee7;
+}
+
+.add-contact-button {
+  margin-top: 24px;
+}
+
+.roster-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.roster-ratio-settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 10px;
+  border: 1px solid #cbd2dc;
+}
+
+.roster-ratio-settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.roster-ratio-settings input {
+  width: 70px;
+}
+
+.roster-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  border-top: 1px solid #cbd2dc;
+  border-left: 1px solid #cbd2dc;
+  overflow-x: auto;
+}
+
+.roster-layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.staff-palette {
+  padding: 12px;
+  border: 1px solid #cbd2dc;
+  background: #f7f8fa;
+}
+
+.staff-palette h2 {
+  margin-top: 0;
+}
+
+.staff-palette p {
+  font-size: 0.9rem;
+}
+
+.staff-palette-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 8px;
+  padding: 8px;
+  background: #dcecff;
+  border-left: 4px solid #2878c8;
+  cursor: grab;
+}
+
+.staff-palette-box:active {
+  cursor: grabbing;
+}
+
+.roster-remove-zone {
+  margin-top: 20px;
+  padding: 12px 8px;
+  border: 1px dashed #b33a3a;
+  background: #fff2f2;
+  color: #8e2525;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.roster-day-heading,
+.roster-cell {
+  min-height: 110px;
+  padding: 8px;
+  border-right: 1px solid #cbd2dc;
+  border-bottom: 1px solid #cbd2dc;
+}
+
+.roster-day-heading {
+  min-height: auto;
+  background: #f1f4f7;
+  font-weight: bold;
+}
+
+.roster-day {
+  grid-template-columns: 1fr;
+}
+
+.roster-week {
+  grid-template-columns: repeat(7, minmax(150px, 1fr));
+}
+
+.outside-month {
+  background: #f7f8fa;
+  color: #8993a1;
+}
+
+.shift-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 8px;
+  padding: 7px;
+  background: #dcecff;
+  border-left: 4px solid #2878c8;
+  cursor: grab;
+}
+
+.safety-light {
+  display: inline-block;
+  width: fit-content;
+  margin: 6px 0;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.safety-green {
+  background: #d9f2df;
+  color: #176b2b;
+}
+
+.safety-amber {
+  background: #fff0c2;
+  color: #765500;
+}
+
+.safety-red {
+  background: #ffd9d9;
+  color: #8e2525;
+}
+
+.roster-category-sections {
+  margin: 6px 0;
+}
+
+.roster-category-section {
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+.roster-category-section ul {
+  margin: 4px 0;
+  padding-left: 14px;
+}
+
+.roster-category-section p {
+  margin: 4px 0;
+}
+
+.shift-box:active {
+  cursor: grabbing;
+}
+
+.shift-edit-form {
+  cursor: default;
+}
+
+.shift-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+}
+
+.roster-year-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.roster-month {
+  min-height: 130px;
+  padding: 12px;
+  border: 1px solid #cbd2dc;
+}
+
+.roster-month h2 {
+  margin-top: 0;
+}
+
+.payroll-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.payroll-header h1 {
+  margin-bottom: 4px;
+}
+
+.payroll-edit-button {
+  margin-bottom: 12px;
+}
+
+.payroll-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: fit-content;
+  margin-bottom: 16px;
+  padding: 10px;
+  border: 1px solid #cbd2dc;
+}
+
+.payroll-settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.payroll-settings input {
+  width: 100px;
+}
+
+.payroll-settings p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.payroll-settings h3 {
+  margin: 8px 0 0;
+}
+
+.payroll-formula-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.payroll-formula-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.payslip-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+}
+
+.payslip {
+  padding: 16px;
+  border: 1px solid #cbd2dc;
+  background: #fff;
+}
+
+.payslip-heading {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d9dee7;
+}
+
+.payslip-heading h2 {
+  margin-top: 0;
+}
+
+.payslip-section {
+  display: grid;
+  gap: 4px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #d9dee7;
+}
+
+.payslip-section h4,
+.payslip-section p {
+  margin: 0;
+}
+
+.payslip-net {
+  font-size: 1.1rem;
+}
+
+.payslip-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.payslip-notes textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.other-deduction-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.other-deduction-entry input {
+  width: 120px;
+}
+
+.other-deduction-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+@media print {
+  .other-deduction-entry {
+    display: none;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .payslip,
+  .payslip * {
+    visibility: visible;
+  }
+
+  .payslip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .payroll-edit-button,
+  .payroll-settings {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .parent-row {
+    flex-direction: column;
+  }
+
+  .roster-year-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payroll-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .payroll-formula-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roster-layout {
+    grid-template-columns: 1fr;
+  }
+}
